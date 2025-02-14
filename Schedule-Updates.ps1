@@ -102,7 +102,7 @@ $existingTask = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyConti
 if ($existingTask) {
     if (-not $Force) {
         $choice = Read-Host "Task '$TaskName' already exists. Overwrite? (Y/N)"
-        if ($choice -ne 'Y') { exit }
+        if ($choice.ToLower() -ne 'y') { exit }
     }
     Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false
 }
