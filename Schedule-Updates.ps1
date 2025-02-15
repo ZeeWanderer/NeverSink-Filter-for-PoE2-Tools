@@ -53,6 +53,8 @@ param(
     [switch]$Force
 )
 
+$SourceRepoPath = (Resolve-Path $SourceRepoPath).Path
+
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     throw "Git is not installed or not in PATH"
 }
